@@ -17,7 +17,7 @@ CREATE TABLE products
 
     CONSTRAINT fk_oi_category_id
         FOREIGN KEY (category_id)
-            REFERENCES categories (id),
+        REFERENCES categories (id),
 
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NULL

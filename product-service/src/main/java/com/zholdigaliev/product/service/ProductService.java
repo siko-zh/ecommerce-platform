@@ -35,6 +35,11 @@ public class ProductService {
         return mapper.toResponse(product);
     }
 
+    public List<ProductResponse> findAllById(List<Long> productIds){
+        List<Product> products = productRepository.findAllById(productIds);
+        return mapper.toResponses(products);
+    }
+
     public ProductResponse create(ProductRequest request) {
         Product product = mapper.toEntity(request);
         Product saved = productRepository.save(product);

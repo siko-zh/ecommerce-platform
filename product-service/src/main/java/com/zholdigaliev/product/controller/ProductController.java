@@ -28,6 +28,12 @@ public class ProductController {
         return ResponseEntity.ok(ApiResponse.success(productService.findById(id)));
     }
 
+    @GetMapping("/batch")
+    public ResponseEntity<List<ProductResponse>> getAllById (@RequestParam List<Long> ids){
+        return ResponseEntity.ok(productService.findAllById(ids));
+    }
+
+
     @PostMapping
     public ResponseEntity<ApiResponse<ProductResponse>> create(@Valid @RequestBody ProductRequest product) {
         return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.success(productService.create(product)));
